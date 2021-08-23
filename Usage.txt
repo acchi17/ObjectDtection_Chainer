@@ -1,0 +1,19 @@
+[1]
+put train image files and annotation files in a directory.
+
+exp: ubuntu/home/pet
+
+[2]
+python randomly_split_directory.py TRAIN_DIR VAL_DIR DATA_DIR
+
+
+
+TRAIN_DIR: Directory path in which train image files will be placed.
+VAL_DIR:   Directory path in which annotation files will be placed.
+DATA_DIR:  Directory path in which train image and annotation files exist.
+
+exp1: python randomly_split_directory.py ./pet/train ./pet/val ./pet/images
+exp2: python randomly_split_directory.py weed\train weed\anno weed\all
+
+[3]
+python train.py --train ./pet/train --val ./pet/val --label_names ./pet/label_names_example.yml --val_iteration 100  --gpu 0 --batchsize 4 --log_iteration 10 --lr 0.00004
